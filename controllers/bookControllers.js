@@ -21,8 +21,9 @@ module.exports = {
     book.find({_id: new ObjectID(req.params.id)}).toArray((err, foundBook) => {
       if(foundBook.length){
         res.send(foundBook[0]);
+      }else{
+        res.send({});
       }
-      res.send({});
     });
   },
   delete: (req, res) => {

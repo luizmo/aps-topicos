@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const server = require('http').createServer(app);
 const db = require('./config/database');
 const routes = require('./routes');
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 db.connectToServer()
   .then(()=>{
